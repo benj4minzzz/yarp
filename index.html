@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Status Panel</title>
+<style>
+    body {
+        background: #0f1117;
+        color: #e6e6e6;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    .card {
+        background: #161a23;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .title {
+        font-size: 18px;
+        color: #7aa2ff;
+    }
+
+    .value {
+        font-size: 24px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="title">Service Status</div>
+    <div class="value" id="status">ONLINE</div>
+</div>
+
+<div class="card">
+    <div class="title">Active Users</div>
+    <div class="value" id="users">128</div>
+</div>
+
+<div class="card">
+    <div class="title">Version</div>
+    <div class="value" id="version">v1.4.2</div>
+</div>
+
+</body>
+</html>
