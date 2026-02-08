@@ -1,51 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Status Panel</title>
+<title>YARP Dashboard</title>
 <style>
-    body {
-        background: #0f1117;
-        color: #e6e6e6;
-        font-family: Arial, sans-serif;
-        padding: 20px;
-    }
-
-    .card {
-        background: #161a23;
-        border-radius: 10px;
-        padding: 15px;
-        margin-bottom: 15px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    }
-
-    .title {
-        font-size: 18px;
-        color: #7aa2ff;
-    }
-
-    .value {
-        font-size: 24px;
-        font-weight: bold;
-    }
+body {
+  background:#0f1117;
+  color:#e6e6e6;
+  font-family:Arial;
+}
+.card {
+  background:#161a23;
+  padding:15px;
+  margin:10px 0;
+  border-radius:10px;
+}
 </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="title">Service Status</div>
-    <div class="value" id="status">ONLINE</div>
-</div>
+<h1>YARP – Users</h1>
+<div id="users"></div>
 
-<div class="card">
-    <div class="title">Active Users</div>
-    <div class="value" id="users">128</div>
-</div>
-
-<div class="card">
-    <div class="title">Version</div>
-    <div class="value" id="version">v1.4.2</div>
-</div>
+<script>
+fetch("users.json")
+  .then(r => r.json())
+  .then(data => {
+    const div = document.getElementById("users");
+    data.users.forEach(u => {
+      div.innerHTML += `
+        <div class="card">
+          <b>${u.username}</b><br>
+          Balance: $${u.balance}
+        </div>`;
+    });
+  });
+</script>
 
 </body>
 </html>
